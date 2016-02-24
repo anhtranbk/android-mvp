@@ -146,13 +146,10 @@ public abstract class MvcFragment extends Fragment implements View {
         if (method != null) {
             try {
                 method.invoke(this, msg);
-            } catch (Exception e) {
+            } catch (IllegalArgumentException | IllegalAccessException e) {
                 LOGGER.error(null, e);
-                if (!(e instanceof IllegalAccessException)
-                        && !(e instanceof IllegalArgumentException)
-                        && !(e instanceof InvocationTargetException)) {
-                    throw new RuntimeException(e);
-                }
+            } catch (InvocationTargetException e) {
+                throw new RuntimeException(e.getTargetException());
             }
         }
     }
