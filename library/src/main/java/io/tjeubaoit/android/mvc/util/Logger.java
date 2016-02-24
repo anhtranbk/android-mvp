@@ -29,7 +29,7 @@ public class Logger {
         if (msg != null) {
             Log.d(mTag, msg.toString(), tr);
         } else {
-            Log.d(mTag, "", tr);
+            Log.d(mTag, "Exception", tr);
         }
     }
 
@@ -43,7 +43,7 @@ public class Logger {
         if (msg != null) {
             Log.i(mTag, msg.toString(), tr);
         } else {
-            Log.i(mTag, "", tr);
+            Log.i(mTag, "Exception", tr);
         }
     }
 
@@ -57,7 +57,7 @@ public class Logger {
         if (msg != null) {
             Log.w(mTag, msg.toString(), tr);
         } else {
-            Log.w(mTag, "", tr);
+            Log.w(mTag, "Exception", tr);
         }
     }
 
@@ -71,7 +71,7 @@ public class Logger {
         if (msg != null) {
             Log.e(mTag, msg.toString(), tr);
         } else {
-            Log.e(mTag, "", tr);
+            Log.e(mTag, "Exception", tr);
         }
     }
 }
