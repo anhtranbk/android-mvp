@@ -1,6 +1,5 @@
 package com.example.mvc;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,21 +16,19 @@ public class MainActivity extends MvcActivity {
 
     static final String TAG = MainActivity.class.getSimpleName();
 
-    ProgressDialog pd;
+    private TextView textResult;
+    private TextView textTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView textResult = (TextView) findViewById(R.id.text_result);
+        textResult = (TextView) findViewById(R.id.text_result);
+        textTimer = (TextView) findViewById(R.id.text_timer);
+
         final EditText edit1 = (EditText) findViewById(R.id.edit1);
         final EditText edit2 = (EditText) findViewById(R.id.edit2);
-
-        pd = new ProgressDialog(this);
-        pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        pd.setIndeterminate(false);
-        pd.setCancelable(false);
 
         findViewById(R.id.start_calculate).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +39,7 @@ public class MainActivity extends MvcActivity {
                     public void handle(AsyncResult<String> event) {
                         if (event.failed()) {
                             Log.e(TAG, "Error", event.cause());
+                            textTimer.setText(event.cause().getMessage());
                         } else {
                             textResult.setText(event.result());
                         }
@@ -49,28 +47,13 @@ public class MainActivity extends MvcActivity {
                 });
             }
         });
-        Log.d(TAG, "Main thread: " + Thread.currentThread().getId());
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (pd.isShowing()) {
-            pd.dismiss();
-        }
     }
 
     @OnAction(MainController.ACTION_PROGRESS)
     public void onProgress(Message msg) {
-        Log.d(TAG, msg.body().toString() + "," + Thread.currentThread().getId());
-        if (!pd.isShowing()) {
-            pd.setMax(100);
-            pd.setProgress(0);
-            pd.show();
-        }
-        pd.setProgress((int) msg.body());
-        if (pd.getProgress() == 100) {
-            pd.dismiss();
+        textTimer.setText("Timer : " + msg.body());
+        if ((int) msg.body() == 100) {
+            findViewById(R.id.start_calculate).setEnabled(true);
         }
     }
 }
