@@ -16,7 +16,6 @@ public class MainActivity extends MvcActivity {
 
     static final String TAG = MainActivity.class.getSimpleName();
 
-    private TextView textResult;
     private TextView textTimer;
 
     @Override
@@ -24,7 +23,7 @@ public class MainActivity extends MvcActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textResult = (TextView) findViewById(R.id.text_result);
+        final TextView textResult = (TextView) findViewById(R.id.text_result);
         textTimer = (TextView) findViewById(R.id.text_timer);
 
         final EditText edit1 = (EditText) findViewById(R.id.edit1);
