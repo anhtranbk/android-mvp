@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -147,6 +148,11 @@ public abstract class MvcFragment extends Fragment implements View {
                 method.invoke(this, msg);
             } catch (Exception e) {
                 LOGGER.error(null, e);
+                if (!(e instanceof IllegalAccessException)
+                        && !(e instanceof IllegalArgumentException)
+                        && !(e instanceof InvocationTargetException)) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }

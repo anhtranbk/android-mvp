@@ -61,10 +61,13 @@ public abstract class Controller implements Handler<Message> {
         if (method != null) {
             try {
                 method.invoke(this, msg);
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (Exception e) {
                 LOGGER.error(null, e);
-            } catch (InvocationTargetException e) {
-                throw new RuntimeException(e);
+                if (!(e instanceof IllegalAccessException)
+                        && !(e instanceof IllegalArgumentException)
+                        && !(e instanceof InvocationTargetException)) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }

@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -135,6 +136,11 @@ public abstract class MvcActivity extends AppCompatActivity implements View {
                 method.invoke(this, msg);
             } catch (Exception e) {
                 LOGGER.error(null, e);
+                if (!(e instanceof IllegalAccessException)
+                        && !(e instanceof IllegalArgumentException)
+                        && !(e instanceof InvocationTargetException)) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
