@@ -16,7 +16,6 @@ public class MainActivity extends MvcActivity {
 
     static final String TAG = MainActivity.class.getSimpleName();
 
-    private TextView textResult;
     private TextView textTimer;
 
     @Override
@@ -24,7 +23,7 @@ public class MainActivity extends MvcActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textResult = (TextView) findViewById(R.id.text_result);
+        final TextView textResult = (TextView) findViewById(R.id.text_result);
         textTimer = (TextView) findViewById(R.id.text_timer);
 
         final EditText edit1 = (EditText) findViewById(R.id.edit1);
@@ -38,7 +37,7 @@ public class MainActivity extends MvcActivity {
                     @Override
                     public void handle(AsyncResult<String> event) {
                         if (event.failed()) {
-                            Log.e(TAG, "Error", event.cause());
+                            // Log.e(TAG, "Error", event.cause());
                             textTimer.setText(event.cause().getMessage());
                         } else {
                             textResult.setText(event.result());
