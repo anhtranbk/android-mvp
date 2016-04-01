@@ -22,7 +22,7 @@ public abstract class Controller implements Handler<Message> {
 
     private static final Logger LOGGER = Logger.getLogger(Controller.class);
 
-    private final Context context;
+    protected final Context context;
     private final Dispatcher dispatcher;
     private final WeakReference<View> view;
     private final Map<String, Method> methodMap;
