@@ -76,7 +76,7 @@ public abstract class AbstractDispatcher implements Dispatcher {
                     .build();
             doDispatchToController(controller, msg);
         } else {
-            throw new RuntimeException("No controller for handle action from: " + sender);
+            LOGGER.warn(null, new RuntimeException("No controller for handle action from: " + sender));
         }
     }
 
