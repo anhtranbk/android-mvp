@@ -35,6 +35,11 @@ public abstract class AbstractDispatcher implements Dispatcher {
         Controller controller = controllerMap.get(view);
         if (controller == null) {
             Class<?> clazz = Mvc.getViewMapping().get(view.getClass().getName());
+            if (clazz == null) {
+                LOGGER.warn(null, new RuntimeException("No controller map with view: " + view));
+                return;
+            }
+
             try {
                 controller = (Controller) SimpleClassLoader.loadClass(clazz,
                         new Class[]{Context.class, View.class},
