@@ -36,7 +36,7 @@ public abstract class AbstractDispatcher implements Dispatcher {
         if (controller == null) {
             Class<?> clazz = Mvc.getViewMapping().get(view.getClass().getName());
             if (clazz == null) {
-                LOGGER.warn(null, new RuntimeException("No controller map with view: " + view));
+                LOGGER.debug(null, new RuntimeException("No controller map with view: " + view));
                 return;
             }
 
@@ -81,7 +81,7 @@ public abstract class AbstractDispatcher implements Dispatcher {
                     .build();
             doDispatchToController(controller, msg);
         } else {
-            LOGGER.warn(null, new RuntimeException("No controller for handle action from: " + sender));
+            LOGGER.debug(null, new RuntimeException("No controller for handle action from: " + sender));
         }
     }
 
