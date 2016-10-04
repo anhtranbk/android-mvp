@@ -37,7 +37,7 @@ public class MainActivity extends MvcActivity {
                     @Override
                     public void handle(AsyncResult<String> event) {
                         if (event.failed()) {
-                            // Log.e(TAG, "Error", event.cause());
+                             Log.e(TAG, "Error", event.cause());
                             textTimer.setText(event.cause().getMessage());
                         } else {
                             textResult.setText(event.result());
@@ -51,7 +51,7 @@ public class MainActivity extends MvcActivity {
     @OnAction(MainController.ACTION_PROGRESS)
     public void onProgress(Message msg) {
         textTimer.setText("Timer : " + msg.body());
-        if ((int) msg.body() == 100) {
+        if ((long) msg.body() == 100) {
             findViewById(R.id.start_calculate).setEnabled(true);
         }
     }

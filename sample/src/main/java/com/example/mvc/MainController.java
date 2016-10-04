@@ -36,7 +36,7 @@ public class MainController extends ActivityController {
 
             @Override
             public void onFinish() {
-                post(ACTION_PROGRESS, 100);
+                post(ACTION_PROGRESS, 100L);
             }
         }.start();
     }

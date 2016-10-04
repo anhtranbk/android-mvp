@@ -52,7 +52,7 @@
       android:id="@+id/start_calculate"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:enabled="false"
+      android:enabled="true"
       android:text="Calculate"/>
 
 </LinearLayout>
