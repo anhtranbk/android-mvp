@@ -50,10 +50,11 @@ public class MainActivity extends MvcActivity {
 
     @OnAction(MainController.ACTION_PROGRESS)
     public void onProgress(Message msg) {
-        long time = msg.body();
-        if (time == 100) {
+        AsyncResult<Long> ar = msg.body();
+        if (ar.failed()) {
             findViewById(R.id.start_calculate).setEnabled(true);
+        } else {
+            textTimer.setText("Timer : " + ar.result());
         }
-        textTimer.setText("Timer : " + time);
     }
 }

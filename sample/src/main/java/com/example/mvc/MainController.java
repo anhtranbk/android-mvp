@@ -8,6 +8,7 @@ import io.tjeubaoit.android.mvc.ActivityController;
 import io.tjeubaoit.android.mvc.View;
 import io.tjeubaoit.android.mvc.annotation.OnAction;
 import io.tjeubaoit.android.mvc.annotation.ViewMapping;
+import io.tjeubaoit.android.mvc.async.Results;
 import io.tjeubaoit.android.mvc.message.Message;
 
 /**
@@ -31,12 +32,12 @@ public class MainController extends ActivityController {
         new CountDownTimer(100 * 100, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
-                post(ACTION_PROGRESS, (10000 - millisUntilFinished) / 100);
+                post(ACTION_PROGRESS, Results.ok((10000 - millisUntilFinished) / 100));
             }
 
             @Override
             public void onFinish() {
-                post(ACTION_PROGRESS, 100L);
+                post(ACTION_PROGRESS, Results.fail());
             }
         }.start();
     }
