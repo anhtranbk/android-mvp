@@ -61,7 +61,7 @@ public interface Message {
 
     String action();
 
-    Object body();
+    <T> T body();
 
     void reply(Object response);
 

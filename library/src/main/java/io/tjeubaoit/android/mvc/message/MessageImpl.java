@@ -29,9 +29,10 @@ class MessageImpl<R> implements Message {
         return action;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Object body() {
-        return body;
+    public <T> T body() {
+        return (T) body;
     }
 
     @Override

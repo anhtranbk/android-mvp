@@ -43,7 +43,7 @@ public class MainController extends ActivityController {
 
     @OnAction(ACTION_PLUS)
     public void handeActionPlus(Message msg) {
-        String[] input = (String[]) msg.body();
+        String[] input = msg.body();
         try {
             if (input.length < 2)
                 throw new IllegalArgumentException("Not enough params");
