@@ -47,9 +47,11 @@ public class ReflectionUtils {
 
         // support instant run
         File[] files = new File(getInstantRunOutputDir(context)).listFiles();
-        for (File file : files) {
-            if (file.isFile() && file.getName().matches(INSTANT_RUN_REGEX)) {
-                dexFiles.add(new DexFile(file.getAbsoluteFile()));
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile() && file.getName().matches(INSTANT_RUN_REGEX)) {
+                    dexFiles.add(new DexFile(file.getAbsoluteFile()));
+                }
             }
         }
 
