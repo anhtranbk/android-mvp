@@ -46,7 +46,7 @@ public class HandlerDispatcher extends AbstractDispatcher {
     }
 
     @Override
-    public void shutdown() {
+    public void close() {
         stopHandlerThread();
         mHandler = null;
         mHandlerThread = null;

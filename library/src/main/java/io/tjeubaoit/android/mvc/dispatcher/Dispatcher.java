@@ -1,5 +1,7 @@
 package io.tjeubaoit.android.mvc.dispatcher;
 
+import java.io.Closeable;
+
 import io.tjeubaoit.android.mvc.View;
 import io.tjeubaoit.android.mvc.common.AsyncResult;
 import io.tjeubaoit.android.mvc.common.Handler;
@@ -9,22 +11,14 @@ import io.tjeubaoit.android.mvc.common.Handler;
  *
  * @author <a href="https://github.com/tjeubaoit">tjeubaoit</a>
  */
-public interface Dispatcher {
+public interface Dispatcher extends Closeable {
 
     void attachView(View view);
 
     void detachView(View view);
 
-    void dispatchToController(View sender, String action);
-
-    void dispatchToController(View sender, String action, Object body);
-
     <R> void dispatchToController(View sender, String action, Object body,
                                   Handler<AsyncResult<R>> replyHandler);
 
-    void dispatchToView(View target, String action);
-
     void dispatchToView(View target, String action, Object body);
-
-    void shutdown();
 }

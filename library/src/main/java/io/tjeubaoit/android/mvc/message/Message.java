@@ -1,5 +1,7 @@
 package io.tjeubaoit.android.mvc.message;
 
+import android.os.Looper;
+
 import io.tjeubaoit.android.mvc.common.AsyncResult;
 import io.tjeubaoit.android.mvc.common.Handler;
 
@@ -12,9 +14,9 @@ public interface Message {
 
     final class Factory {
 
-        public static <R> Message create(String action, Object body, android.os.Handler osHandler,
+        public static <R> Message create(String action, Object body, Looper looper,
                                           Handler<AsyncResult<R>> replyHandler) {
-            return new MessageImpl<>(action, body, osHandler, replyHandler);
+            return new MessageImpl<>(action, body, looper, replyHandler);
         }
     }
 
@@ -23,7 +25,7 @@ public interface Message {
         private String action;
         private Object body;
         private Message msg;
-        private android.os.Handler osHandler;
+        private Looper looper;
 
         public Builder setAction(String action) {
             this.action = action;
@@ -35,25 +37,25 @@ public interface Message {
             return this;
         }
 
-        public Builder setOsHandler(android.os.Handler osHandler) {
-            this.osHandler = osHandler;
+        public Builder setLooper(Looper looper) {
+            this.looper = looper;
             return this;
         }
 
         public <R> Builder setReplyHandler(Handler<AsyncResult<R>> replyHandler) {
-            if (osHandler == null) {
-                osHandler = new android.os.Handler();
+            if (looper == null) {
+                looper = Looper.myLooper();
             }
-            msg = Message.Factory.create(action, body, osHandler, replyHandler);
+            msg = Message.Factory.create(action, body, looper, replyHandler);
             return this;
         }
 
         public Message build() {
             if (msg == null) {
-                if (osHandler == null) {
-                    osHandler = new android.os.Handler();
+                if (looper == null) {
+                    looper = Looper.myLooper();
                 }
-                msg = Message.Factory.create(action, body, osHandler, null);
+                msg = Message.Factory.create(action, body, looper, null);
             }
             return msg;
         }

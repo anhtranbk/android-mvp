@@ -1,6 +1,7 @@
 package io.tjeubaoit.android.mvc.dispatcher;
 
 import android.content.Context;
+import android.os.Looper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,9 +11,9 @@ import io.tjeubaoit.android.mvc.Mvc;
 import io.tjeubaoit.android.mvc.View;
 import io.tjeubaoit.android.mvc.common.AsyncResult;
 import io.tjeubaoit.android.mvc.common.Handler;
-import io.tjeubaoit.android.mvc.message.Message;
 import io.tjeubaoit.android.mvc.common.logging.Logger;
 import io.tjeubaoit.android.mvc.common.util.SimpleClassLoader;
+import io.tjeubaoit.android.mvc.message.Message;
 
 /**
  * TODO: Class description here.
@@ -59,16 +60,6 @@ public abstract class AbstractDispatcher implements Dispatcher {
     }
 
     @Override
-    public void dispatchToController(View sender, String action) {
-        dispatchToController(sender, action, null, null);
-    }
-
-    @Override
-    public void dispatchToController(View sender, String action, Object body) {
-        dispatchToController(sender, action, body, null);
-    }
-
-    @Override
     public <R> void dispatchToController(View sender, String action, Object body,
                                          Handler<AsyncResult<R>> replyHandler) {
         Controller controller = controllerMap.get(sender);
@@ -76,18 +67,13 @@ public abstract class AbstractDispatcher implements Dispatcher {
             Message msg = new Message.Builder()
                     .setAction(action)
                     .setBody(body)
-                    .setOsHandler(new android.os.Handler())
+                    .setLooper(Looper.myLooper())
                     .setReplyHandler(replyHandler)
                     .build();
             doDispatchToController(controller, msg);
         } else {
             LOGGER.debug(null, new RuntimeException("No controller for handle action from: " + sender));
         }
-    }
-
-    @Override
-    public void dispatchToView(View target, String action) {
-        dispatchToView(target, action, null);
     }
 
     @Override
@@ -100,7 +86,7 @@ public abstract class AbstractDispatcher implements Dispatcher {
     }
 
     @Override
-    public void shutdown() {
+    public void close() {
         LOGGER.debug("Shutdown dispatcher");
     }
 

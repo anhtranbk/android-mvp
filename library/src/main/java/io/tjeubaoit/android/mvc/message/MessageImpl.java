@@ -1,5 +1,7 @@
 package io.tjeubaoit.android.mvc.message;
 
+import android.os.Looper;
+
 import io.tjeubaoit.android.mvc.common.AsyncResult;
 import io.tjeubaoit.android.mvc.common.Future;
 import io.tjeubaoit.android.mvc.common.Handler;
@@ -16,12 +18,12 @@ class MessageImpl<R> implements Message {
     private Handler<AsyncResult<R>> replyHandler;
     private android.os.Handler androidHandler;
 
-    public MessageImpl(String action, Object body, android.os.Handler osHandler,
+    public MessageImpl(String action, Object body, Looper looper,
                        Handler<AsyncResult<R>> replyHandler) {
         this.action = action;
         this.body = body;
         this.replyHandler = replyHandler;
-        this.androidHandler = osHandler;
+        this.androidHandler = new android.os.Handler(looper);
     }
 
     @Override
