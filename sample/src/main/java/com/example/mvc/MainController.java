@@ -8,7 +8,7 @@ import io.tjeubaoit.android.mvc.ActivityController;
 import io.tjeubaoit.android.mvc.View;
 import io.tjeubaoit.android.mvc.annotation.OnAction;
 import io.tjeubaoit.android.mvc.annotation.ViewMapping;
-import io.tjeubaoit.android.mvc.async.Results;
+import io.tjeubaoit.android.mvc.common.Results;
 import io.tjeubaoit.android.mvc.message.Message;
 
 /**

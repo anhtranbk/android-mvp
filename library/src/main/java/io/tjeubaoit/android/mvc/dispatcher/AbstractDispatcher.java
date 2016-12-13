@@ -8,11 +8,11 @@ import java.util.Map;
 import io.tjeubaoit.android.mvc.Controller;
 import io.tjeubaoit.android.mvc.Mvc;
 import io.tjeubaoit.android.mvc.View;
-import io.tjeubaoit.android.mvc.async.AsyncResult;
-import io.tjeubaoit.android.mvc.async.Handler;
+import io.tjeubaoit.android.mvc.common.AsyncResult;
+import io.tjeubaoit.android.mvc.common.Handler;
 import io.tjeubaoit.android.mvc.message.Message;
-import io.tjeubaoit.android.mvc.util.Logger;
-import io.tjeubaoit.android.mvc.util.SimpleClassLoader;
+import io.tjeubaoit.android.mvc.common.logging.Logger;
+import io.tjeubaoit.android.mvc.common.util.SimpleClassLoader;
 
 /**
  * TODO: Class description here.

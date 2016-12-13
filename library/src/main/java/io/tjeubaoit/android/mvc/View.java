@@ -1,6 +1,6 @@
 package io.tjeubaoit.android.mvc;
 
-import io.tjeubaoit.android.mvc.async.Handler;
+import io.tjeubaoit.android.mvc.common.Handler;
 import io.tjeubaoit.android.mvc.message.Message;
 
 /**

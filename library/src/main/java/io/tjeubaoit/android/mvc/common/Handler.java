@@ -1,4 +1,4 @@
-package io.tjeubaoit.android.mvc.async;
+package io.tjeubaoit.android.mvc.common;
 
 /**
  * TODO: Class description here.

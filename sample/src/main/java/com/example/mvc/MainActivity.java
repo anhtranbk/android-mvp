@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import io.tjeubaoit.android.mvc.MvcActivity;
 import io.tjeubaoit.android.mvc.annotation.OnAction;
-import io.tjeubaoit.android.mvc.async.AsyncResult;
-import io.tjeubaoit.android.mvc.async.Handler;
+import io.tjeubaoit.android.mvc.common.AsyncResult;
+import io.tjeubaoit.android.mvc.common.Handler;
 import io.tjeubaoit.android.mvc.message.Message;
 
 public class MainActivity extends MvcActivity {

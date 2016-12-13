@@ -1,4 +1,4 @@
-package io.tjeubaoit.android.mvc.util;
+package io.tjeubaoit.android.mvc.common.util;
 
 import android.content.Context;
 

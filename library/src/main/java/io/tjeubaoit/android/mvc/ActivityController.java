@@ -9,8 +9,8 @@ import android.os.PersistableBundle;
 import android.util.Pair;
 
 import io.tjeubaoit.android.mvc.message.Message;
-import io.tjeubaoit.android.mvc.util.Caster;
-import io.tjeubaoit.android.mvc.util.Logger;
+import io.tjeubaoit.android.mvc.common.util.Caster;
+import io.tjeubaoit.android.mvc.common.logging.Logger;
 
 /**
  * TODO: Class description here.

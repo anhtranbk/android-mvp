@@ -10,8 +10,8 @@ import java.util.Set;
 import io.tjeubaoit.android.mvc.annotation.ViewMapping;
 import io.tjeubaoit.android.mvc.dispatcher.Dispatcher;
 import io.tjeubaoit.android.mvc.dispatcher.DispatcherType;
-import io.tjeubaoit.android.mvc.util.Logger;
-import io.tjeubaoit.android.mvc.util.ReflectionUtils;
+import io.tjeubaoit.android.mvc.common.logging.Logger;
+import io.tjeubaoit.android.mvc.common.util.ReflectionUtils;
 
 /**
  * TODO: Class description here.

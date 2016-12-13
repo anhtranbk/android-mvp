@@ -13,11 +13,11 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 import io.tjeubaoit.android.mvc.annotation.OnActionScanner;
-import io.tjeubaoit.android.mvc.async.AsyncResult;
-import io.tjeubaoit.android.mvc.async.Handler;
+import io.tjeubaoit.android.mvc.common.AsyncResult;
+import io.tjeubaoit.android.mvc.common.Handler;
 import io.tjeubaoit.android.mvc.dispatcher.Dispatcher;
 import io.tjeubaoit.android.mvc.message.Message;
-import io.tjeubaoit.android.mvc.util.Logger;
+import io.tjeubaoit.android.mvc.common.logging.Logger;
 
 /**
  * TODO: Class description here.

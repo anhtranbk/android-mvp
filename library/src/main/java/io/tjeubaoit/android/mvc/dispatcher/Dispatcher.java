@@ -1,8 +1,8 @@
 package io.tjeubaoit.android.mvc.dispatcher;
 
 import io.tjeubaoit.android.mvc.View;
-import io.tjeubaoit.android.mvc.async.AsyncResult;
-import io.tjeubaoit.android.mvc.async.Handler;
+import io.tjeubaoit.android.mvc.common.AsyncResult;
+import io.tjeubaoit.android.mvc.common.Handler;
 
 /**
  * TODO: Class description here.

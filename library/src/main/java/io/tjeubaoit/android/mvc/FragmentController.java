@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import io.tjeubaoit.android.mvc.message.Message;
-import io.tjeubaoit.android.mvc.util.Caster;
-import io.tjeubaoit.android.mvc.util.Logger;
+import io.tjeubaoit.android.mvc.common.util.Caster;
+import io.tjeubaoit.android.mvc.common.logging.Logger;
 
 /**
  * TODO: Class description here.

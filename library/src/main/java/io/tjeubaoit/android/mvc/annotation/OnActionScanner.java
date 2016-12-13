@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.tjeubaoit.android.mvc.message.Message;
-import io.tjeubaoit.android.mvc.util.Logger;
+import io.tjeubaoit.android.mvc.common.logging.Logger;
 
 /**
  * TODO: Class description here.

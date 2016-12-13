@@ -1,4 +1,4 @@
-package io.tjeubaoit.android.mvc.util;
+package io.tjeubaoit.android.mvc.common.util;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

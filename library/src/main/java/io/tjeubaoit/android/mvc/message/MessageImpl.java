@@ -1,8 +1,8 @@
 package io.tjeubaoit.android.mvc.message;
 
-import io.tjeubaoit.android.mvc.async.AsyncResult;
-import io.tjeubaoit.android.mvc.async.Future;
-import io.tjeubaoit.android.mvc.async.Handler;
+import io.tjeubaoit.android.mvc.common.AsyncResult;
+import io.tjeubaoit.android.mvc.common.Future;
+import io.tjeubaoit.android.mvc.common.Handler;
 
 /**
  * TODO: Class description here.
