@@ -1,2 +1,2 @@
-# android-mvc
-Micro-library for simple create MVC-based Android application
+# android-mvp
+A micro-library for building Android applications based on MVP pattern 
