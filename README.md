@@ -1,2 +1,2 @@
 # android-mvp
-Micro-library to create Android applications based on MVP pattern 
+A micro-library for building Android applications based on MVP pattern 
